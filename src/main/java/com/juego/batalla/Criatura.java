@@ -19,12 +19,22 @@ public abstract class Criatura {
         if (this.salud < 0) this.salud = 0;
         System.out.println(this.nombre + " ha recibido " + cantidad + " de daño. Salud: " + this.salud);
     }
-
+    public void descansar() {
+        this.energia += 20;
+        System.out.println( nombre + " descansa. Energía actual: " + energia);
+    }
     public boolean estaVivo() {
+
         return this.salud > 0;
     }
 
     public String getNombre() {
         return nombre;
+    }
+    public int getSalud() {
+        return salud;
+    }
+    public int getEnergia() {
+        return energia;
     }
 }
