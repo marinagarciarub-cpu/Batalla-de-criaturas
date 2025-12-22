@@ -16,8 +16,9 @@ package com.juego.batalla;
 
     public void recibirDaño(int cantidad) {
         this.salud -= cantidad;
-        if (this.salud < 0) this.salud = 0;
-        System.out.println(this.nombre + " recieves " + cantidad + "harm. Health: " + this.salud);
+        if (this.salud < 0)
+            this.salud = 0;
+        System.out.println(this.nombre + " recieves " + cantidad + " harm. Health: " + this.salud);
     }
     public void descansar() {
         this.energia += 20;

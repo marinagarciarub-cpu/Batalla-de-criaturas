@@ -1,8 +1,10 @@
-
 package com.juego.batalla;
 
+
     public class Guerrero extends Criatura {
-        public Guerrero(String nombre) { super(nombre, 150, 60); }
+        public Guerrero(String nombre) {
+            super(nombre, 150, 60);
+        }
 
         @Override
             public void atacar(Criatura objetivo, int tipoAtaque) throws EnergiaInsuficienteException, PersonajeDerrotadoException {
@@ -19,8 +21,8 @@ package com.juego.batalla;
             case 2:
                    if (energia < 5) throw new EnergiaInsuficienteException("No energy to use the shield!");
                      System.out.println(nombre + " ATTACK with your shield ");
-                        energia -= 5;
-                    objetivo.recibirDaño(10);
+                     energia -= 5;
+                     objetivo.recibirDaño(10);
                 break;
 
             case 3:

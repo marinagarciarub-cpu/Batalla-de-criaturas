@@ -1,7 +1,9 @@
 package com.juego.batalla;
 
 public class Mago extends Criatura {
-    public Mago(String nombre) { super(nombre, 100, 100); }
+    public Mago(String nombre) {
+        super(nombre, 100, 100);
+    }
 
         @Override
         public void atacar(Criatura objetivo, int tipoAtaque) throws EnergiaInsuficienteException, PersonajeDerrotadoException {
@@ -12,8 +14,7 @@ public class Mago extends Criatura {
                  energia -= 10; objetivo.recibirDaño(15);
         }
         else if (tipoAtaque == 2) {
-
-             if(energia < 30) throw new EnergiaInsuficienteException("Failed throwing the electric storm.");
+            if(energia < 30) throw new EnergiaInsuficienteException("Failed throwing the electric storm.");
                  System.out.println(nombre + " throws electric storm ");
                  energia -= 30; objetivo.recibirDaño(35);
         } else {

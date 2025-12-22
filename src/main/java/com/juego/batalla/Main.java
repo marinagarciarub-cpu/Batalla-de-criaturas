@@ -14,8 +14,8 @@ public class Main {
             System.out.print("Choose: ");
 
             try {
-                int op = Integer.parseInt(sc.nextLine());
-                if (op >= 1 && op <= 3) {
+                int op = Integer.parseInt(sc.nextLine()); //toma la frase y la transforma en un num entero para evitar que explote
+                    if (op >= 1 && op <= 3) {
                     jugador.atacar(rival, op);
                 } else if (op == 4) {
                     jugador.descansar();
@@ -28,16 +28,15 @@ public class Main {
 
             if (!rival.estaVivo()) break;
 
-            // IA del Rival
-            System.out.println("\n GANDALF TURN ");
+                System.out.println("\n GANDALF TURN ");
             try {
-                int decisionIA = rand.nextInt(3) + 1; // Elige ataque 1, 2 o 3
-                rival.atacar(jugador, decisionIA);
+                int decisionMago = rand.nextInt(3) + 1; // Elige ataque 1, 2 o 3
+                rival.atacar(jugador, decisionMago);
             } catch (Exception e) {
                 System.out.println("Gandalf tries to attack but: " + e.getMessage());
                 rival.descansar(); // Si no tiene energía para el ataque que eligió, descansa
             }
+                }
+                System.out.println(jugador.estaVivo() ? "YOU WON " : "YOU LOST...");
         }
-        System.out.println(jugador.estaVivo() ? "YOU WON " : "YOU LOST...");
-    }
 }
