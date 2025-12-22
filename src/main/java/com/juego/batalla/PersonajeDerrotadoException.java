@@ -1,4 +1,9 @@
 package com.juego.batalla;
 
-public class PersonajeDerrotadoException {
+import java.security.spec.RSAOtherPrimeInfo;
+
+public class PersonajeDerrotadoException extends Exception {
+    public PersonajeDerrotadoException(String message){
+        super(message);
+    }
 }
