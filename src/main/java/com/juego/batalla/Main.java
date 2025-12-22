@@ -1,69 +1,43 @@
 package com.juego.batalla;
-
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
+        Criatura jugador = new Guerrero("Aragon");
+        Criatura rival = new Mago("Gandalf");
 
-        Criatura jugador = new Guerrero("Aragorn");
-        // Usamos Mago para la IA
-        Mago gandalf = new Mago("Gandalf");
-
-        System.out.println("--- BIENVENIDO A LA BATALLA ---");
-
-        while (jugador.estaVivo() && gandalf.estaVivo()) {
-            // --- TURNO DEL JUGADOR ---
-            System.out.println("\n--- TURNO DE " + jugador.getNombre().toUpperCase() + " ---");
-            System.out.println("Salud: " + jugador.salud + " | Energía: " + jugador.energia);
-            System.out.println("1. Atacar con Espada");
-            System.out.println("2. Esperar (Recuperar energía)");
-            System.out.print("Elige una acción: ");
-
-            String opcion = sc.nextLine();
+        while (jugador.estaVivo() && rival.estaVivo()) {
+            System.out.println("\n PLAYER ARAGON: " + jugador.getSalud() + " LIFE | " + jugador.getEnergia() + " ENERGY ");
+            System.out.println("1. Sword (10 EN)\n2. Shield (5 EN)\n3. Lethal punch (40 EN)\n4. Rest");
+            System.out.print("Choose: ");
 
             try {
-                if (opcion.equals("1")) {
-                    jugador.atacar(gandalf);
+                int op = Integer.parseInt(sc.nextLine());
+                if (op >= 1 && op <= 3) {
+                    jugador.atacar(rival, op);
+                } else if (op == 4) {
+                    jugador.descansar();
                 } else {
-                    jugador.energia += 15;
-                    System.out.println(jugador.getNombre() + " descansa y recupera energía.");
-                }
-            } catch (EnergiaInsuficienteException | PersonajeDerrotadoException e) {
-                System.out.println(" " + e.getMessage());
-            }
-
-            if (!gandalf.estaVivo()) break;
-
-            // --- TURNO DE LA IA (GANDALF) ---
-            System.out.println("\n--- TURNO DE GANDALF ---");
-            try {
-                // Gandalf decide: si tiene poca energía, medita. Si no, ataca.
-                if (gandalf.energia < 30) {
-                    gandalf.meditar();
-                } else {
-                    // Probabilidad: 20% de fallar el hechizo por "distracción"
-                    if (rand.nextInt(100) < 20) {
-                        System.out.println("¡Gandalf se trabó al pronunciar el hechizo!");
-                    } else {
-                        gandalf.atacar(jugador);
-                    }
+                    System.out.println("Invalid oposition, you loose your turn.");
                 }
             } catch (Exception e) {
-                System.out.println("Gandalf falló: " + e.getMessage());
+                System.out.println("Error: " + e.getMessage());
+            }
+
+            if (!rival.estaVivo()) break;
+
+            // IA del Rival
+            System.out.println("\n GANDALF TURN ");
+            try {
+                int decisionIA = rand.nextInt(3) + 1; // Elige ataque 1, 2 o 3
+                rival.atacar(jugador, decisionIA);
+            } catch (Exception e) {
+                System.out.println("Gandalf tries to attack but: " + e.getMessage());
+                rival.descansar(); // Si no tiene energía para el ataque que eligió, descansa
             }
         }
-
-        // --- RESULTADO FINAL ---
-        System.out.println("\n==========================");
-        if (jugador.estaVivo()) {
-            System.out.println("¡VICTORIA! Has derrotado al mago.");
-        } else {
-            System.out.println("HAS MUERTO... Gandalf reclama tu alma.");
-        }
-        System.out.println("==========================");
-        sc.close();
+        System.out.println(jugador.estaVivo() ? "YOU WON " : "YOU LOST...");
     }
 }

@@ -1,27 +1,27 @@
 package com.juego.batalla;
 
-public abstract class Criatura {
-    protected String nombre;
-    protected int salud;
-    protected int energia;
+    public abstract class Criatura {
+        protected String nombre;
+        protected int salud;
+        protected int energia;
 
-    public Criatura(String nombre, int salud, int energia) {
-        this.nombre = nombre;
-        this.salud = salud;
-        this.energia = energia;
-    }
+        public Criatura(String nombre, int salud, int energia) {
+            this.nombre = nombre;
+            this.salud = salud;
+            this.energia = energia;
+        }
 
-    // Método que obliga a los hijos a implementar su propio ataque
-    public abstract void atacar(Criatura objetivo) throws EnergiaInsuficienteException, PersonajeDerrotadoException;
+    public abstract void atacar(Criatura objetivo, int tipoAtaque)
+            throws EnergiaInsuficienteException, PersonajeDerrotadoException;
 
     public void recibirDaño(int cantidad) {
         this.salud -= cantidad;
         if (this.salud < 0) this.salud = 0;
-        System.out.println(this.nombre + " ha recibido " + cantidad + " de daño. Salud: " + this.salud);
+        System.out.println(this.nombre + " recieves " + cantidad + "harm. Health: " + this.salud);
     }
     public void descansar() {
         this.energia += 20;
-        System.out.println( nombre + " descansa. Energía actual: " + energia);
+        System.out.println( nombre + " rest. Actual energy: " + energia);
     }
     public boolean estaVivo() {
 
