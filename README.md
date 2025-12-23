@@ -1,4 +1,4 @@
-﻿# Gandalf vs Araforn
+﻿# Gandalf vs Aragorn
 
 #  PROYECTO: SIMULADOR DE BATALLA LORD OF THE RINGS
 
@@ -44,5 +44,6 @@ El juego está protegido contra fallos mediante excepciones personalizadas:
 1. Clonar el repositorio.
 3. Ejecutar la clase `Main.java`.
 4. Seguir las instrucciones del menú en la consola.
+
 
 
