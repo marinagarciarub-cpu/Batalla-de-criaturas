@@ -16,7 +16,7 @@ Este proyecto es una implementación de un sistema de combate por turnos desarro
 
 ---
 
-## 🛠️ ESTRUCTURA DEL CÓDIGO
+##  ESTRUCTURA DEL CÓDIGO
 
 ### 1. Jerarquía de Clases
 * **`Criatura` (Clase Abstracta):** El molde base. Contiene la lógica de salud, energía y el contrato de ataque.
@@ -44,4 +44,5 @@ El juego está protegido contra fallos mediante excepciones personalizadas:
 1. Clonar el repositorio.
 3. Ejecutar la clase `Main.java`.
 4. Seguir las instrucciones del menú en la consola.
+
 
