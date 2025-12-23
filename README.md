@@ -11,7 +11,7 @@ Este proyecto es una implementación de un sistema de combate por turnos desarro
 | **ARAGORN (El Guerrero)** | **VS** | **GANDALF (El Mago)** |
 | :---: | :---: | :---: |
 | ![Aragorn](https://assets.mycast.io/characters/aragorn-6976819-normal.jpg?1654419779) | | ![Gandalf](https://th.bing.com/th/id/R.fb2774b2556f035e6dcbd304a16a49ae?rik=IrS1Mgz4s4uDxA&riu=http%3a%2f%2fimages.wikia.com%2flotr%2fimages%2f8%2f8d%2fGandalf-2.jpg&ehk=Nm3tJ5SK6z6MbERxfYI6yqcd3virc6P6FuI9Uv1fxxw%3d&risl=&pid=ImgRaw&r=0](https://i.pinimg.com/736x/cb/b1/c5/cbb1c5e3895f1b23679b4e729daf5129.jpg)) |
-| **HP:** 150 | | **HP:** 100 |
+| **Life:** 150 | | **Life:** 100 |
 | **Energía:** 60 | | **Energía:** 100 |
 
 ---
@@ -44,6 +44,7 @@ El juego está protegido contra fallos mediante excepciones personalizadas:
 1. Clonar el repositorio.
 3. Ejecutar la clase `Main.java`.
 4. Seguir las instrucciones del menú en la consola.
+
 
 
 
